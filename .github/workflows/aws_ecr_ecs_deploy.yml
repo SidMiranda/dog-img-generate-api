@@ -6,7 +6,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
-  ECR_REPOSITORY: dog-api
+  ECR_REPOSITORY: f9v5s8j4/dog-api
 
 permissions:
   contents: read
