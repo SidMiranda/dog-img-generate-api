@@ -32,7 +32,7 @@ on:
 
 env:
   AWS_REGION: us-east-1 #MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: public.ecr.aws/f9v5s8j4/dog-api #MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
+  ECR_REPOSITORY: dog-api #MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
   # ECS_SERVICE: MY_ECS_SERVICE                 # set this to your Amazon ECS service name
   # ECS_CLUSTER: MY_ECS_CLUSTER                 # set this to your Amazon ECS cluster name
   # ECS_TASK_DEFINITION: MY_ECS_TASK_DEFINITION # set this to the path to your Amazon ECS task definition
@@ -67,8 +67,13 @@ jobs:
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
       env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        IMAGE_TAG: ${{ github.sha }}
+        # ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        # IMAGE_TAG: ${{ github.sha }}
+
+        REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+        # REGISTRY_ALIAS: my-ecr-public-registry-alias
+        REPOSITORY: dog-api
+        
       run: |
         # Build a docker container and
         # push it to ECR so that it can
