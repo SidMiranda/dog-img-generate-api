@@ -71,8 +71,10 @@ jobs:
         IMAGE_TAG: ${{ github.sha }} 
         
         TESTE1: ${{ steps.login-ecr.outputs }}
+        TESTE2: ${{ steps.login-ecr }}
       run: |
-        echo $TESTE1
+        echo "$TESTE1"
+        echo "$TESTE2"
 
         # Build a docker container and
         # push it to ECR so that it can
