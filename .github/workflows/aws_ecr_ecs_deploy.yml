@@ -70,10 +70,7 @@ jobs:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
         IMAGE_TAG: ${{ github.sha }} 
         
-        TESTE1: ${{ steps.login-ecr.outputs }}
       run: |
-        echo "$TESTE1"
-
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
