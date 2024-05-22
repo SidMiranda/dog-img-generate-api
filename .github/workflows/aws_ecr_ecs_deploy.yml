@@ -75,7 +75,7 @@ jobs:
         # push it to ECR so that it can
         # be deployed to ECS.
 
-        docker build -t dog-api ../../
+        docker build -t dog-api .
         docker tag dog-api:latest public.ecr.aws/f9v5s8j4/dog-api:latest
         docker push public.ecr.aws/f9v5s8j4/dog-api:latest
 
